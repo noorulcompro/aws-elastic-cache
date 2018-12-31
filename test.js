@@ -9,7 +9,7 @@ var options = {
   "host": "test-redis.yaiwig.0001.use1.cache.amazonaws.com",
   "port": 6379
 };
-
+console.log('Creating Redis Client');
 var client = redis.createClient(options.port, options.host, function() {
   console.log('222222222');
   var data = [ 's:anal:dev1:ingestion:yoyo' ];
