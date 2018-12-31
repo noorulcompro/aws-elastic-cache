@@ -15,7 +15,7 @@ var client = redis.createClient(options.port, options.host);
 client.on("error", function (err) {
     console.log("Error " + err);
 });
-var redisKey = 'a' + Math.random();
+var redisKey = 'a-' + Math.floor((Math.random() * 10000000) + 1);
 console.log(redisKey);
 client.hset(redisKey, "key", "value", function(a, b) {
   console.log('a');
