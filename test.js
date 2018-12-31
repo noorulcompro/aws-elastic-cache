@@ -25,7 +25,7 @@ client.hset(redisKey, "key", "value", function(a, b) {
 });
  
 // This will return a JavaScript String
-client.get(redisKey, function (err, reply) {
+client.hgetall(redisKey, function (err, reply) {
   console.log('Getting Redis Key');
   console.log(err);
   console.log(reply);
