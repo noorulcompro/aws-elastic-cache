@@ -10,13 +10,12 @@ var options = {
   "port": 6379
 };
 console.log('Creating Redis Client');
-var client = redis.createClient(options.port, options.host, function() {
+var client = redis.createClient(options.port, options.host);
     console.log('222222222');
   
     client.set("foo_rand000000000000", "OK");
  
     // This will return a JavaScript String
     client.get("foo_rand000000000000", function (err, reply) {
-    console.log(reply.toString()); // Will print `OK`
-});
-});
+        console.log(reply.toString()); // Will print `OK`
+    });
