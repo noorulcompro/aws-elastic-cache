@@ -16,7 +16,7 @@ client.on("error", function (err) {
     console.log("Error " + err);
 });
   
-client.hset("foo_rand000000000000", {key: value, key2: value2}, function(a, b) { console.log(a); console.log(b); });
+client.hset("foo_rand000000000000", "key", "value", function(a, b) { console.log(a); console.log(b); });
  
 // This will return a JavaScript String
 client.get("foo_rand000000000000", function (err, reply) {
