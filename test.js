@@ -15,8 +15,8 @@ var client = redis.createClient(options.port, options.host);
 client.on("error", function (err) {
     console.log("Error " + err);
 });
-  
-client.hset("redis-key-2", "key", "value", function(a, b) {
+var redisKey = Math.random();
+client.hset(redisKey, "key", "value", function(a, b) {
   console.log('a');
   console.log(a);
   console.log('b');
@@ -24,7 +24,7 @@ client.hset("redis-key-2", "key", "value", function(a, b) {
 });
  
 // This will return a JavaScript String
-client.get("redis-key-2", function (err, reply) {
+client.get(redisKey, function (err, reply) {
   console.log('Getting Redis Key');
   console.log(err);
   console.log(reply);
