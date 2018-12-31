@@ -16,6 +16,7 @@ client.on("error", function (err) {
     console.log("Error " + err);
 });
 var redisKey = Math.random();
+console.log(redisKey);
 client.hset(redisKey, "key", "value", function(a, b) {
   console.log('a');
   console.log(a);
