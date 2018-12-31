@@ -11,11 +11,14 @@ var options = {
 };
 console.log('Creating Redis Client');
 var client = redis.createClient(options.port, options.host);
-    console.log('222222222');
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
   
-    client.set("foo_rand000000000000", "OK");
+client.hset("foo_rand000000000000", {key: value, key2: value2}, function(a, b) { console.log(a); console.log(b); });
  
-    // This will return a JavaScript String
-    client.get("foo_rand000000000000", function (err, reply) {
-        console.log(reply.toString()); // Will print `OK`
-    });
+// This will return a JavaScript String
+client.get("foo_rand000000000000", function (err, reply) {
+  console.log(reply.toString()); // Will print `OK`
+});
