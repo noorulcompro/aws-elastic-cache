@@ -12,25 +12,20 @@ var options = {
 
 var client = redis.createClient(options.port, options.host, function() {
   console.log('222222222');
+  var data = [ 's:anal:dev1:ingestion:yoyo' ];
+  if(true) { data.push('classId'); }
+  else { data.push('standard'); }
+  client.multi()
+  .sadd(data)
+  .expire(data[0], 15*60)
+  .exec(function(err, res) {
+    if(err) {
+      console.log(err);
+    }
+    else { console.log(res); }
+  });
 });
-client.auth(options.password, function (err) {
-  console.log('111111111111111');
-  if (err) { throw err; }
-  else {
-    var data = [ 's:anal:dev1:ingestion:yoyo' ];
-    if(true) { data.push('classId'); }
-    else { data.push('standard'); }
-    client.multi()
-    .sadd(data)
-    .expire(data[0], 15*60)
-    .exec(function(err, res) {
-      if(err) {
-        console.log(err);
-      }
-      else { console.log(res); }
-    });
-  }
-});
+  
 
 
 
