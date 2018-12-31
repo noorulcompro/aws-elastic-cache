@@ -7,8 +7,7 @@ var fs = require('fs');
 //var _und = require('underscore');
 var options = {
   "host": "test-redis.yaiwig.0001.use1.cache.amazonaws.com",
-  "port": 6379,
-  "password": "comprodlscomprodls"
+  "port": 6379
 };
 
 var client = redis.createClient(options.port, options.host, function() {
