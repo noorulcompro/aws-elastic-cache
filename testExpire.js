@@ -11,7 +11,7 @@ var client = redis.createClient(options.port, options.host);
 client.on("error", function (err) {
     console.log("Error " + err);
 });
-client.setex("Noor", "ali", 30, function(err, res) {
+client.setex("Noor", 30, "ali", function(err, res) {
   console.log('res0');
   console.log(res)
   ttlFunction();
