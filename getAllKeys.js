@@ -22,10 +22,12 @@ client.keys(redisKey, function(err, keys) {
   console.log(err);
   console.log(keys);
   if(!err) {
-    client.mget(keys, function(errVals, values) {
-      console.log('Getting Redis Values');
-      console.log(err);
-      console.log(values);
-    });
+    for(var i in keys) {
+      client.hgetall(keys[i], function(errVals, values) {
+        console.log('Getting Redis Values');
+        console.log(err);
+        console.log(values);
+      });
+    }
   }
 });
