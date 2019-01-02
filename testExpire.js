@@ -13,7 +13,7 @@ client.on("error", function (err) {
 });
 var redisKey = Math.floor((Math.random() * 10000000) + 1);
 console.log(redisKey);
-client.setex('Noor, "ali", 30 function(res, err) {
+client.setex("Noor", "ali", 30 function(res, err) {
   console.log('res');
   console.log(res);
   console.log('err');
