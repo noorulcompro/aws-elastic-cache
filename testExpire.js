@@ -20,7 +20,7 @@ client.setex("Noor", "ali", 30, function(err, res) {
       client.get("Noor",function(err, res) {
        console.log('res2');
        console.log(res);
-       setTimeout(ttlFunction(), 5000);
+       setTimeout(ttlFunction, 5000);
       });
     });
   } 
