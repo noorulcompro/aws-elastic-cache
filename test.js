@@ -17,7 +17,7 @@ client.on("error", function (err) {
 });
 var redisKey = 'a-' + Math.floor((Math.random() * 10000000) + 1);
 console.log(redisKey);
-client.hset(redisKey, "key", "value", function(a, b) {
+client.hset(redisKey, "name", "redis-test", function(a, b) {
   console.log('a');
   console.log(a);
   console.log('b');
