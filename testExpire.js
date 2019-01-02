@@ -12,6 +12,8 @@ client.on("error", function (err) {
     console.log("Error " + err);
 });
 client.setex("Noor", "ali", 30, function(err, res) {
+  console.log('res0');
+  console.log(res)
   ttlFunction();
   function ttlFunction() {
     client.ttl("Noor",function(err, res) {
