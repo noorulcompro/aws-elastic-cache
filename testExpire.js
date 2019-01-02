@@ -11,11 +11,17 @@ var client = redis.createClient(options.port, options.host);
 client.on("error", function (err) {
     console.log("Error " + err);
 });
-var redisKey = Math.floor((Math.random() * 10000000) + 1);
-console.log(redisKey);
-client.setex("Noor", "ali", 30 function(res, err) {
-  console.log('res');
-  console.log(res);
-  console.log('err');
-  console.log(err);
+client.setex("Noor", "ali", 30, function(err, res) {
+  ttlFunction();
+  function ttlFunction() {
+    client.ttl("Noor",function(err, res) {
+      console.log('res1');
+      console.log(res)
+      client.get("Noor",function(err, res) {
+       console.log('res2');
+       console.log(res);
+       setTimeout(ttlFunction(), 5000);
+      });
+    });
+  } 
 });
