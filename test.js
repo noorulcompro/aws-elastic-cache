@@ -18,17 +18,17 @@ client.on("error", function (err) {
 var redisKey = 'a-' + Math.floor((Math.random() * 10000000) + 1);
 console.log(redisKey);
 client.hset(redisKey, "name", "redis-test", function(err, res) {
-  console.log('err');
+  console.log('errSET');
   console.log(err);
-  console.log('res');
+  console.log('resSET');
   console.log(res);
 });
  
 // This will return a JavaScript String
 client.hgetall(redisKey, function (err, res) {
   console.log('Getting Redis Key');
-  console.log('err');
+  console.log('errGET');
   console.log(err);
-  console.log('res');
+  console.log('resGET');
   console.log(res);
 });
