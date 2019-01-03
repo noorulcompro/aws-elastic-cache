@@ -2,18 +2,31 @@ var redis = require("redis");
 var fs = require('fs');
 
 var options = {
-  "host": "cluster-testing.yaiwig.clustercfg.use1.cache.amazonaws.com",
-  "port": 6379
+  "host": "redis-19837.c9.us-east-1-2.ec2.cloud.redislabs.com",
+  "port": 19837,
+  "password": "comprodls"
 };
 
 console.log('Creating Redis Client');
 var client = redis.createClient(options.port, options.host);
+if(options.password) {
+  client.auth(options.password, function(err) {
+      if(err) {
+        console.log(err, { stats: 'count#redis.' + host + '~~' + type + '.connection.failed=1' },
+         'Error while Authenticating to Redis Server for ' + type);
+      }
+    });
+}
 
 client.on("error", function (err) {
     console.log("Error " + err);
 });
 
-var redisKey = 'a-*';
+client.on('connect', function() {
+  console.log('Redis connect event');
+});
+
+var redisKey = 'a:*';
 console.log(redisKey);
  
 // This will return a JavaScript String
