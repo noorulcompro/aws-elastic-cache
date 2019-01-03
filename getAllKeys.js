@@ -2,7 +2,7 @@ var redis = require("redis");
 var fs = require('fs');
 
 var options = {
-  "host": "cluster-testing.yaiwig.clustercfg.use1.cache.amazonaws.com",
+  "host": "test-redis-replica.yaiwig.ng.0001.use1.cache.amazonaws.com",
   "port": 6379
 };
 
