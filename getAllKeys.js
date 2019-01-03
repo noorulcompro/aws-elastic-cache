@@ -9,7 +9,7 @@ var options = {
 console.log('Creating Redis Client');
 var client = redis.createClient(options.port, options.host);
 if(options.password) {
-  self.redisClient.auth(options.password, function(err) {
+  client.auth(options.password, function(err) {
       if(err) {
         console.log(err, { stats: 'count#redis.' + host + '~~' + type + '.connection.failed=1' },
          'Error while Authenticating to Redis Server for ' + type);
@@ -21,7 +21,7 @@ client.on("error", function (err) {
     console.log("Error " + err);
 });
 
-self.redisClient.on('connect', function() {
+client.on('connect', function() {
   console.log('Redis connect event');
 });
 
