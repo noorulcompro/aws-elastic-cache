@@ -6,7 +6,7 @@ var fs = require('fs');
 
 //var _und = require('underscore');
 var options = {
-  "host": "clustercfg.shard-testing.yaiwig.use1.cache.amazonaws.com",
+  "host": "testing-w-shards.yaiwig.clustercfg.use1.cache.amazonaws.com",
   "port": 6379
 };
 console.log('Creating Redis Client');
