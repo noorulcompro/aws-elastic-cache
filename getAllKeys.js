@@ -26,7 +26,7 @@ client.on('connect', function() {
   console.log('Redis connect event');
 });
 
-var redisKey = 's:*';
+var redisKey = 'a:*';
 console.log(redisKey);
  
 // This will return a JavaScript String
