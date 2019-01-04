@@ -1,7 +1,7 @@
 var redis = require("redis");
 
 var options = {
-  "host": "test-redis.yaiwig.0001.use1.cache.amazonaws.com",
+  "host": "test-redis-replica.yaiwig.ng.0001.use1.cache.amazonaws.com",
   "port": 6379
 };
 console.log('Creating Redis Client');
