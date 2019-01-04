@@ -6,8 +6,8 @@ var options = {
 };
 console.log('Creating Redis Client');
 var pub = redis.createClient(options.port, options.host);
+var client = redis.createClient(options.port, options.host);
 
-pub.config('SET', 'notify-keyspace-events', 'K$');
 
     // REDIS Events
     pub.on('connect', function() {
@@ -27,11 +27,42 @@ pub.config('SET', 'notify-keyspace-events', 'K$');
       console.log('error' + err);
     });
 
+
+client.on('connect', function() {
+     console.log('connected');
+    });
+
+    client.on('ready', function() {
+      console.log('ready');
+    });
+
+
+    client.on('disconnected', function(err) {
+      console.log('disconnected' + err);
+    });
+
+    client.on('error', function(err) {
+      console.log('error' + err);
+    });
+
+client.setex('Nitish', 10, "Raturi", function(err, res) {
+  console.log('errSET');
+  console.log(err);
+  console.log('resSET');
+  console.log(res);
+});
+
     pub.on('end', function(err) {
       console.log('error' + err);
     });
 
-    pub.on('pmessage', function() {
+    pub.on('pmessage', function(err, res, value) {
+      console.log('err');
+      console.log(err);
+      console.log('res');
+      console.log(res);
+      console.log('value');
+      console.log(value);
       console.log('pMessage received');
     });
 
