@@ -45,7 +45,7 @@ client.on('error', function(err) {
   console.log('error' + err);
 });
 
-client.setex('Nitish', 10, "Raturi", function(err, res) {
+client.setex('Nitish', 2, "Raturi", function(err, res) {
   console.log('errSET');
   console.log(err);
   console.log('resSET');
