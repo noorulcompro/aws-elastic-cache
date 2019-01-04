@@ -7,7 +7,7 @@ var options = {
 console.log('Creating Redis Client');
 var pub = redis.createClient(options.port, options.host);
 
-pub.config('SET', 'notify-keyspace-events', 'K$');
+pub.config('SET', 'notify-keyspace-events', 'KEA');
 
     // REDIS Events
     pub.on('connect', function() {
