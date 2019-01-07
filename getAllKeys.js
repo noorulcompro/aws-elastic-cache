@@ -2,7 +2,7 @@ var redis = require("redis");
 var fs = require('fs');
 
 var options = {
-  "host": "thor-core.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
+  "host": "thor-user-tokens.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
   "port": 6379
 };
 
@@ -25,7 +25,7 @@ client.on('connect', function() {
   console.log('Redis connect event');
 });
 
-var redisKey = 'a:*';
+var redisKey = '*';
 console.log(redisKey);
  
 // This will return a JavaScript String
