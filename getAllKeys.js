@@ -2,9 +2,8 @@ var redis = require("redis");
 var fs = require('fs');
 
 var options = {
-  "host": "redis-19837.c9.us-east-1-2.ec2.cloud.redislabs.com",
-  "port": 19837,
-  "password": "comprodls"
+  "host": "thor-core.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
+  "port": 6379
 };
 
 console.log('Creating Redis Client');
