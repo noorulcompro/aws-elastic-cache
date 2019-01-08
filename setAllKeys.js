@@ -162,25 +162,25 @@ function setKeys(data, value) {
       }
       client.mset(redisKeyValueArray, function(err) {
           if(err) {
-              deferred.reject(err);
+              console.log(err);
           } else {
-              deferred.resolve();
+              console.log();
           }
       });
   } else if ({}.toString.apply(data) === '[object String]') {
       client.set(data, value, function(err) {
           if(err) {
-              deferred.reject(err);
+              console.log(err);
           } else {
-              deferred.resolve();
+              console.log();
           }
       });
   }
   client.set(key, function(err, response) {
     if(err) {
-        deferred.reject(err);
+        console.log(err);
     } else {
-        deferred.resolve(response);
+        console.log(response);
     }
   });
 }
