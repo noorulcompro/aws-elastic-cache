@@ -6,7 +6,7 @@ var fs = require('fs');
 
 //var _und = require('underscore');
 var options = {
-  "host": "test-redis-replica.yaiwig.ng.0001.use1.cache.amazonaws.com",
+  "host": "thor-analytics.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
   "port": 6379
 };
 console.log('Creating Redis Client');
