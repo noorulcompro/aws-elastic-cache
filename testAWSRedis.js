@@ -29,7 +29,7 @@ client.set(['test-key-1', 'test-value-10101'], function (error, result) {
 });
 
 
-console.log('GET value-- ' + JSON.stringify(result));
+console.log('GETting value--key - test-key-1');
 setInterval(function() {
     client.get('test-key-1', function (error, result) {
         if (error) {
