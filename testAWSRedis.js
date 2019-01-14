@@ -1,5 +1,5 @@
 var redis = require("redis");
-var timeout = 1000; // = 1 sec, (in miliseconds)
+var timeout = 50; // = 1 sec, (in miliseconds)
 
 var options = {
     'host': 'redis-10010.c12.us-east-1-4.ec2.cloud.redislabs.com',
@@ -29,15 +29,12 @@ client.set(['test-key-1', 'test-value-10101'], function (error, result) {
 });
 
 
-
+console.log('GET value-- ' + JSON.stringify(result));
 setInterval(function() {
     client.get('test-key-1', function (error, result) {
         if (error) {
           console.log("ERROR at getting-----");
           console.log(error);
-        }
-        else {
-          console.log('GET value-- ' + JSON.stringify(result));
         }
     });
 }, timeout);
