@@ -1,5 +1,6 @@
 var redis = require("redis");
 var timeout = 10; // = 1 sec, (in miliseconds)
+var counter = 0;
 
 var options = {
     'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
@@ -27,10 +28,14 @@ client.set(['test-key-1', 'test-value-10101'], function (error, result) {
 
 console.log('GETting value--key - test-key-1');
 setInterval(function() {
+    counter++;
     client.get('test-key-1', function (error, result) {
         if (error) {
           console.log("ERROR at getting-----");
           console.log(error);
+        }
+        else {
+            if(counter % 50 == 0) { console.log('Running Succesfully...'); }
         }
     });
 }, timeout);
