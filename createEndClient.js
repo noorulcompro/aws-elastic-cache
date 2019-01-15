@@ -1,6 +1,6 @@
 var redis = require('redis');
-var timeout = 100; // = 1 sec, (in miliseconds)
-var bConnect = false, bReady = false;
+var timeout = 100; // (in miliseconds)
+var bConnect = false, bReady = false, counter = 0;
 
 var options = {
     'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
@@ -14,23 +14,31 @@ function createClient() {
     var client = redis.createClient(options.port, options.host);
 
     client.on('connect', function () {
-        console.log('Redis client connected');
+        if(counter % 50 == 0) {
+            console.log('Redis client connected');
+        }
         bConnect = true;
         if(bConnect && bReady) {
+          counter++;
           client.end(true);
         }
     });
 
     client.on('ready', function () {
-        console.log('Redis client ready');
+        if(counter % 50 == 0) {
+            console.log('Redis client ready');
+        }
         bReady = true;
         if(bConnect && bReady) {
+          counter++;
           client.quit();
         }
     });
 
     client.on('end', function () {
-      console.log('Redis client ended');
+      if(counter % 50 == 0) {
+        console.log('Redis client ended');
+      }
       client = undefined;
       bConnect = false;
       bReady = false;
@@ -38,7 +46,8 @@ function createClient() {
     });
 
     client.on('error', function (err) {
-        console.log('Something went wrong ' + err);
+        console.log('Error:');
+        console.log(JSON.stringify(err, 0, 4));
     });
   }, timeout);
 }
