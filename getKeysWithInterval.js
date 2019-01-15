@@ -1,5 +1,5 @@
 var redis = require("redis");
-var timeout = 50; // = 1 sec, (in miliseconds)
+var timeout = 30; // = 1 sec, (in miliseconds)
 
 var options = {
     'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
@@ -31,6 +31,9 @@ setInterval(function() {
         if (error) {
           console.log("ERROR at getting-----");
           console.log(error);
+        }
+        else {
+            console.log(result);
         }
     });
 }, timeout);
