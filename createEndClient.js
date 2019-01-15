@@ -1,5 +1,5 @@
-var redis = require("redis");
-var timeout = 1000; // = 1 sec, (in miliseconds)
+var redis = require('redis');
+var timeout = 100; // = 1 sec, (in miliseconds)
 var bConnect = false, bReady = false;
 
 var options = {
@@ -7,37 +7,38 @@ var options = {
     'port': 6379
 };
 
-var client = redis.createClient(options.port, options.host);
+createClient();
 
 function createClient() {
   setTimeout(function() {
-    client = redis.createClient(options.port, options.host);
+    var client = redis.createClient(options.port, options.host);
+
+    client.on('connect', function () {
+        console.log('Redis client connected');
+        bConnect = true;
+        if(bConnect && bReady) {
+          client.end(true);
+        }
+    });
+
+    client.on('ready', function () {
+        console.log('Redis client ready');
+        bReady = true;
+        if(bConnect && bReady) {
+          client.quit();
+        }
+    });
+
+    client.on('end', function () {
+      console.log('Redis client ended');
+      client = undefined;
+      bConnect = false;
+      bReady = false;
+      createClient();
+    });
+
+    client.on('error', function (err) {
+        console.log('Something went wrong ' + err);
+    });
   }, timeout);
 }
-
-client.on('connect', function () {
-    console.log('Redis client connected');
-    bConnect = true;
-    if(bConnect && bReady) {
-      client.end(true);
-    }
-});
-
-client.on('ready', function () {
-    console.log('Redis client ready');
-    bReady = true;
-    if(bConnect && bReady) {
-      client.end(true);
-    }
-});
-
-client.on('end', function () {
-    console.log('Redis client ended');
-    createClient();
-});
-
-client.on('error', function (err) {
-    console.log('Something went wrong ' + err);
-});
-
-createClient();
