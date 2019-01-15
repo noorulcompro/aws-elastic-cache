@@ -1,15 +1,17 @@
 var redis = require("redis");
 var timeout = 1000; // = 1 sec, (in miliseconds)
-var bConnect = false, bReady = false, client;
+var bConnect = false, bReady = false;
 
 var options = {
     'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
     'port': 6379
 };
 
+var client = redis.createClient(options.port, options.host);
+
 function createClient() {
   setTimeout(function() {
-    cient = redis.createClient(options.port, options.host);
+    client = redis.createClient(options.port, options.host);
   }, timeout);
 }
 
