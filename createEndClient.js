@@ -1,5 +1,5 @@
 var redis = require('redis');
-var timeout = 100; // (in miliseconds)
+var timeout = 10; // (in miliseconds)
 var bConnect = false, bReady = false, counter = 0;
 
 var options = {
@@ -25,7 +25,7 @@ function createClient() {
     });
 
     client.on('ready', function () {
-        if(counter % 50 == 0) {
+        if(counter % 500 == 0) {
             console.log('Redis client ready');
         }
         bReady = true;
