@@ -1,5 +1,5 @@
 var redis = require("redis");
-var timeout = 10; // = 1 sec, (in miliseconds)
+var timeout = 5; // = 1 sec, (in miliseconds)
 var counter = 0;
 
 var options = {
@@ -35,7 +35,7 @@ setInterval(function() {
           console.log(error);
         }
         else {
-            if(counter % 50 == 0) { console.log('Running Succesfully...'); }
+            if(counter % 5000 == 0) { console.log('Running Succesfully...'); }
         }
     });
 }, timeout);
