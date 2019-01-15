@@ -1,5 +1,5 @@
 var redis = require("redis");
-var timeout = 50; // = 1 sec, (in miliseconds)
+var timeout = 100; // = 1 sec, (in miliseconds)
 
 var options = {
     'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
