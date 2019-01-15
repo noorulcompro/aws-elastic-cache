@@ -14,12 +14,12 @@ function createClient() {
     var client = redis.createClient(options.port, options.host);
 
     client.on('connect', function () {
+        counter++;
         if(counter % 50 == 0) {
             console.log('Redis client connected');
         }
         bConnect = true;
         if(bConnect && bReady) {
-          counter++;
           client.end(true);
         }
     });
@@ -30,7 +30,6 @@ function createClient() {
         }
         bReady = true;
         if(bConnect && bReady) {
-          counter++;
           client.quit();
         }
     });
