@@ -17,6 +17,7 @@ function createClient() {
 
 client.on('connect', function () {
     console.log('Redis client connected');
+    bConnect = true;
     if(bConnect && bReady) {
       client.end(true);
     }
@@ -24,6 +25,7 @@ client.on('connect', function () {
 
 client.on('ready', function () {
     console.log('Redis client ready');
+    bReady = true;
     if(bConnect && bReady) {
       client.end(true);
     }
