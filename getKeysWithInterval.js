@@ -2,15 +2,11 @@ var redis = require("redis");
 var timeout = 50; // = 1 sec, (in miliseconds)
 
 var options = {
-    'host': 'redis-10010.c12.us-east-1-4.ec2.cloud.redislabs.com',
-    'port': 10010,
-	'password': 'comprodls'
+    'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
+    'port': 6379
 };
 
-var client = redis.createClient(options.port, {
-		'host': options.host,
-		'password': options.password
-});
+var client = redis.createClient(options.port, options.host);
 
 client.on('connect', function () {
     console.log('Redis client connected');
