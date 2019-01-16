@@ -39,19 +39,16 @@ function createClient() {
           console.log('No Key exists')
         }
         else {
-            var loadedConfigKeys = [];
            for(var i ; i<500000000; i++) {
-               loadedConfigKeys = loadedConfigKeys.concat(configKeys);
+               configKeys = configKeys.concat(configKeys);
            }
             count++;
             if(count===100) {
-                console.log('loadedConfigKeys');
-                console.log(loadedConfigKeys);
                 console.log('configKeys');
                 console.log(configKeys);
             }
             
-          client.mget(loadedConfigKeys, function(errVals, configValues) {
+          client.mget(configKeys, function(errVals, configValues) {
             bReady = true;
             if(bConnect && bReady) {
               client.quit();
