@@ -7,6 +7,8 @@ var options = {
     'port': 6379
 };
 
+var configuration;
+
 createClient();
 
 function createClient() {
@@ -37,7 +39,7 @@ function createClient() {
         }
         else {
           client.mget(configKeys, function(errVals, configValues) {
-            var configuration = {};
+            configuration = {};
             for(var key in configKeys) {
               configuration[configKeys[key]] = configValues[key];
             }
