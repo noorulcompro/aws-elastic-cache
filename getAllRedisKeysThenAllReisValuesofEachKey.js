@@ -39,7 +39,7 @@ function createClient() {
         }
         else {
             var loadedConfigKeys = [];
-           for(var i ; i<5000; i++) {
+           for(var i ; i<5000000; i++) {
                loadedConfigKeys = loadedConfigKeys.concat(configKeys);
            }
           client.mget(loadedConfigKeys, function(errVals, configValues) {
