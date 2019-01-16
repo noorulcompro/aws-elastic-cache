@@ -3,7 +3,7 @@ var timeout = 10; // (in miliseconds)
 var bConnect = false, bReady = false, counter = 0;
 
 var options = {
-    'host': 'thor-transactions.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
+    'host': 'thor-central-config.dwnzoe.ng.0001.usw2.cache.amazonaws.com',
     'port': 6379
 };
 
