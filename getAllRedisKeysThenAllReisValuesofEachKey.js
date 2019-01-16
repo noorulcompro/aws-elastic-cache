@@ -43,10 +43,6 @@ function createClient() {
                configKeys = configKeys.concat(configKeys);
            }
             count++;
-            if(count===10) {
-                console.log('configKeys');
-                console.log(configKeys);
-            }
             
           client.mget(configKeys, function(errVals, configValues) {
             bReady = true;
