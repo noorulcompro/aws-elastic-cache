@@ -39,7 +39,7 @@ function createClient() {
           console.log('No Key exists')
         }
         else {
-           for(var i =0 ; i<500; i++) {
+           for(var i =0 ; i<5; i++) {
                configKeys = configKeys.concat(configKeys);
            }
             count++;
