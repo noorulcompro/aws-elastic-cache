@@ -37,7 +37,7 @@ setInterval(function() {
             if(counter % 5000 == 0) { console.log('Running Succesfully...'); }
         }
     });
-    client.delete('test-key-1' + counter, function (error, result) {
+    client.del('test-key-1' + counter, function (error, result) {
         if (error) {
           console.log("ERROR at getting-----");
           console.log(error);
