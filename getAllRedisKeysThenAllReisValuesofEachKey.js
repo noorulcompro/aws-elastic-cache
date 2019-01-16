@@ -8,6 +8,7 @@ var options = {
 };
 
 var configuration;
+var count = 0;
 
 createClient();
 
@@ -39,9 +40,14 @@ function createClient() {
         }
         else {
             var loadedConfigKeys = [];
-           for(var i ; i<5000000; i++) {
+           for(var i ; i<500000000; i++) {
                loadedConfigKeys = loadedConfigKeys.concat(configKeys);
            }
+            count++;
+            if(count===100) {
+                console.log(loadedConfigKeys);
+            }
+            
           client.mget(loadedConfigKeys, function(errVals, configValues) {
             bReady = true;
             if(bConnect && bReady) {
