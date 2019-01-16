@@ -7,8 +7,6 @@ var options = {
     'port': 6379
 };
 
-var configuration = {};
-
 createClient();
 
 function createClient() {
@@ -39,11 +37,10 @@ function createClient() {
         }
         else {
           client.mget(configKeys, function(errVals, configValues) {
+            var configuration = {};
             for(var key in configKeys) {
               configuration[configKeys[key]] = configValues[key];
             }
-            console.log('configuration');
-            console.log(configuration);
             bReady = true;
             if(bConnect && bReady) {
               client.quit();
@@ -56,6 +53,8 @@ function createClient() {
     client.on('end', function () {
       if(counter % 50 == 0) {
         console.log('Redis client ended');
+        console.log('configuration');
+        console.log(configuration);
       }
       client = undefined;
       bConnect = false;
