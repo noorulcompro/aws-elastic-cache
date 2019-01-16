@@ -45,7 +45,10 @@ function createClient() {
            }
             count++;
             if(count===100) {
+                console.log('loadedConfigKeys');
                 console.log(loadedConfigKeys);
+                console.log('configKeys');
+                console.log(configKeys);
             }
             
           client.mget(loadedConfigKeys, function(errVals, configValues) {
