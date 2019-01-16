@@ -26,7 +26,6 @@ setInterval(function() {
             console.log(error);
             throw error;
         }
-        console.log('SET(only once) key --- ' + result);
     });
     client.get('test-key-1' + counter, function (error, result) {
         if (error) {
