@@ -38,7 +38,11 @@ function createClient() {
           console.log('No Key exists')
         }
         else {
-          client.mget(configKeys, function(errVals, configValues) {
+            var loadedConfigKeys = [];
+           for(var i , i<50; i++) {
+               loadedConfigKeys = loadedConfigKeys.concat(configKeys);
+           }
+          client.mget(loadedConfigKeys, function(errVals, configValues) {
             bReady = true;
             if(bConnect && bReady) {
               client.quit();
