@@ -18,7 +18,7 @@ function createClient() {
 
     client.on('connect', function () {
         counter++;
-        if(counter % 50 == 0) {
+        if(counter % 2 == 0) {
             console.log('Redis client connected');
         }
         bConnect = true;
@@ -28,7 +28,7 @@ function createClient() {
     });
 
     client.on('ready', function () {
-        if(counter % 50 == 0) {
+        if(counter % 2 == 0) {
             console.log('Redis client ready');
         }
         client.keys('*', function(errKeys, configKeys) {
@@ -55,7 +55,7 @@ function createClient() {
     });
 
     client.on('end', function () {
-      if(counter % 50 == 0) {
+      if(counter % 2 == 0) {
         console.log('Redis client ended');
       }
       client = undefined;
