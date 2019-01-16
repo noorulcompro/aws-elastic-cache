@@ -34,7 +34,7 @@ function createClient() {
         if(errKeys) {
           console.log('errKeys');
           console.log(errKeys);
-        } else if(!defaultConfigKeys.length) {
+        } else if(!configKeys.length) {
           console.log('No Key exists')
         }
         else {
@@ -42,6 +42,8 @@ function createClient() {
             for(var key in configKeys) {
               configuration[configKeys[key]] = configValues[key];
             }
+            console.log('configuration');
+            console.log(configuration);
             bReady = true;
             if(bConnect && bReady) {
               client.quit();
