@@ -43,7 +43,7 @@ function createClient() {
                configKeys = configKeys.concat(configKeys);
            }
             count++;
-            if(count===100) {
+            if(count===10) {
                 console.log('configKeys');
                 console.log(configKeys);
             }
