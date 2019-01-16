@@ -39,10 +39,6 @@ function createClient() {
         }
         else {
           client.mget(configKeys, function(errVals, configValues) {
-            configuration = {};
-            for(var key in configKeys) {
-              configuration[configKeys[key]] = configValues[key];
-            }
             bReady = true;
             if(bConnect && bReady) {
               client.quit();
@@ -55,8 +51,6 @@ function createClient() {
     client.on('end', function () {
       if(counter % 500 == 0) {
         console.log('Redis client ended');
-        console.log('configuration');
-        console.log(configuration);
       }
       client = undefined;
       bConnect = false;
