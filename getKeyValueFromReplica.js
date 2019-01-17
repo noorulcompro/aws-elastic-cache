@@ -19,22 +19,19 @@ client.on('connect', function() {
  
 // This will return a JavaScript String
 var id = setInterval(function() {
-  client.get('990001', function(err, response) {
+  client.get('object900', function(err, response) {
     if(err) {
       console.log('err' + err);
     }
     else {
-      if(response === '990002') {
-        var getTimeOnCorrectResult = Date.now();
-        console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
+      if(response !== null) {
+        console.log('getTimeOnCorrectResult ' + Date.now());
         clearInterval(id);
       }
       else {
-        var getTimeOnInCorrectResult = Date.now();
-        console.log('getTimeOnInCorrectResult ' + getTimeOnInCorrectResult);
+        console.log('getTimeOnInCorrectResult ' + Date.now());
         console.log('response on IncorrectResult' + response);
       }
-      console.log('response ' + response);
     }
   });
  }, 1)
