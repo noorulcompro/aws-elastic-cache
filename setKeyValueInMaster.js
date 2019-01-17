@@ -18,7 +18,7 @@ client.on('connect', function() {
 });
  var array = [];
 
-for(var i =1; i<10001; i++) {
+for(var i =1; i<100001; i++) {
   array.push(i);
 }
 console.log('array ' + array);
