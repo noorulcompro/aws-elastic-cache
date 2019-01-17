@@ -23,7 +23,7 @@ for(var i =0; i<2; i++) {
 
 var id = setInterval(function() {
  arrClients.forEach(function(client) {
-    client.get('object49001', function(err, response) {
+    client.get('object59001', function(err, response) {
       if(err) {
         console.log('err' + err);
       }
