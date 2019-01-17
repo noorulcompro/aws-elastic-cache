@@ -19,12 +19,12 @@ client.on('connect', function() {
  
 // This will return a JavaScript String
 var id = setInterval(function() {
-  client.get('99', function(err, response) {
+  client.get('97', function(err, response) {
     if(err) {
       console.log('err' + err);
     }
     else {
-      if(response === '100' || response === 100) {
+      if(response === 98) {
         var getTimeOnCorrectResult = Date.now();
         console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
         clearInterval(id);
