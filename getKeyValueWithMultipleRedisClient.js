@@ -22,7 +22,7 @@ for(var i =0; i<100; i++) {
 }
 
 var id = setInterval(function() {
- for each(var client in arrClients) {
+ arrClients.forEach(function(client) {
     client.get('object49001', function(err, response) {
       if(err) {
         console.log('err' + err);
@@ -38,5 +38,5 @@ var id = setInterval(function() {
         }
       }
     });
-   }
+   })
  }, 100)
