@@ -18,7 +18,7 @@ client.on('connect', function() {
 });
  
 // This will return a JavaScript String
-setInterval(function() {
+var id = setInterval(function() {
   client.get('Anshika20', function(err, response) {
     if(err) {
       console.log('err' + err);
@@ -27,8 +27,11 @@ setInterval(function() {
       if(response === 'Srivastava20') {
         var getTimeOnCorrectResult = Date.now();
         console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
+        clearInterval(id);
       }
       else {
+        var getTimeOnInCorrectResult = Date.now();
+        console.log('getTimeOnInCorrectResult ' + getTimeOnInCorrectResult);
         console.log('response on IncorrectResult' + response);
       }
       console.log('response ' + response);
