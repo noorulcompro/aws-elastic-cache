@@ -39,4 +39,4 @@ var id = setInterval(function() {
       }
     });
    })
- }, 10)
+ }, 1)
