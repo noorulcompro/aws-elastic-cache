@@ -31,7 +31,7 @@ setInterval(function() {
           console.log(error);
         }
         else {
-            if(counter % 2 == 0) { console.log('Running Succesfully...'); }
+            if(counter % 2 == 0) { console.log('Value: ' + result); }
         }
     });
 }, timeout);
