@@ -34,4 +34,4 @@ var id = setInterval(function() {
       }
     }
   });
- }, 1)
+ }, 200)
