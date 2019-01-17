@@ -2,7 +2,7 @@ var redis = require("redis");
 var fs = require('fs');
 
 var options = {
-  "host": "clusterthor-analytics.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
+  "host": "thor-analytics.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
   "port": 6379
 };
 
