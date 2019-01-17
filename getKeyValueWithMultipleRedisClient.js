@@ -9,7 +9,7 @@ var options = {
 var arrClients = [];
 
 console.log('Creating Redis Client');
-for(var i =0; i<1000; i++) {
+for(var i =0; i<100; i++) {
  var client = redis.createClient(options.port, options.host);
  client.on("error", function (err) {
    console.log("Error " + err);
@@ -39,4 +39,4 @@ var id = setInterval(function() {
       }
     });
    })
- }, 100)
+ }, 1)
