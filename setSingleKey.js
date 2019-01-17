@@ -6,6 +6,8 @@ var options = {
   "port": 6379
 };
 
+var counter = 0;
+
 console.log('Creating Redis Client');
 var client = redis.createClient(options.port, options.host);
 if(options.password) {
@@ -29,14 +31,17 @@ client.on('ready', function() {
   console.log('Redis ready event');
 });
 
-var redisKey = 's:ballu:anupam';
+var redisKey = 's:PrimaryNodeTesting';
 console.log(redisKey);
  
-client.set(redisKey, 's:singh:sharma', function(err, response) {
-  if(err) {
-    console.log(err);
-  } else {
-    console.log(response);
-  }
-});
+setInterval(function() {
+  counter++;
+  client.set(redisKey, 's:singh:sharma' + counter, function(err, response) {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log(response);
+    }
+  });
   
+}, 1000);
