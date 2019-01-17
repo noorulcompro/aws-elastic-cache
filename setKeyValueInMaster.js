@@ -18,7 +18,7 @@ client.on('connect', function() {
 });
  
 // This will return a JavaScript String
-client.set('Anshika21', 'Srivastava21', function(err, response) {
+client.set('Anshika22', 'Srivastava22', function(err, response) {
   var setTime = Date.now();
   console.log('setTime' + setTime);
   if(err) {
