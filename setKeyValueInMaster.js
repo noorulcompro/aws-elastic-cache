@@ -16,10 +16,16 @@ client.on("error", function (err) {
 client.on('connect', function() {
   console.log('Redis connect event');
 });
- var array = [];
+ var array = [], object;
 
-for(var i =1; i<1000001; i++) {
-  array.push(i);
+for(var i =1; i<1001; i++) {
+  array.push('object' + i);
+  object = {};
+  for(var j =1; j<301; j++) {
+    object['anshika'+j] = 'srivastava' + j;
+    object['anupam'+j] = 'sharma' + j;
+  }
+  array.push(JSON.stringify(object));
 }
 console.log('array ' + array);
 // This will return a JavaScript String
