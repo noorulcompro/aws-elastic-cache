@@ -9,7 +9,7 @@ var options = {
 var arrClients = [];
 
 console.log('Creating Redis Client');
-for(var i =0; i<10; i++) {
+for(var i =0; i<2; i++) {
  var client = redis.createClient(options.port, options.host);
  client.on("error", function (err) {
    console.log("Error " + err);
