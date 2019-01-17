@@ -32,7 +32,7 @@ client.on('ready', function() {
 var redisKey = 's:ballu:anupam';
 console.log(redisKey);
  
-client.set(redisKey, function(err, response) {
+client.set(redisKey, 's:singh:sharma', function(err, response) {
   if(err) {
     console.log(err);
   } else {
