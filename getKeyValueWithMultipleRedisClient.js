@@ -40,25 +40,3 @@ var id = setInterval(function() {
     });
    }
  }, 100)
- 
- 
-
-for each(client in arrClients) {
-  var id = setInterval(function() {
-    client.get('object49001', function(err, response) {
-      if(err) {
-        console.log('err' + err);
-      }
-      else {
-        if(response !== null) {
-          console.log('getTimeOnCorrectResult ' + Date.now());
-          clearInterval(id);
-        }
-        else {
-          console.log('getTimeOnInCorrectResult ' + Date.now());
-          console.log('response on IncorrectResult' + response);
-        }
-      }
-    });
-   }, 10)
-}
