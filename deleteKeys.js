@@ -19,7 +19,7 @@ client.on('connect', function() {
 
 var arr = [];
 
-for(var i =1; i<10000; i++) {
+for(var i =1; i<1000000; i++) {
  arr.push('object'+i);
 }
  
@@ -29,6 +29,6 @@ client.del(arr, function(err, response) {
     console.log('err' + err);
   }
   else {
-    console.log('response' + response);
+    console.log('response ' + response);
   }
 });
