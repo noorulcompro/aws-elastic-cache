@@ -18,7 +18,7 @@ client.on('connect', function() {
 });
  var array = [], object;
 
-for(var i =10001; i<20001; i++) {
+for(var i =20001; i<30001; i++) {
   array.push('object' + i);
   object = {};
   for(var j =1; j<301; j++) {
@@ -27,10 +27,10 @@ for(var i =10001; i<20001; i++) {
   }
   array.push(JSON.stringify(object));
 }
+console.log('setStartTime' + Date.now());
 // This will return a JavaScript String
 client.mset(array, function(err, response) {
-  var setTime = Date.now();
-  console.log('setTime' + setTime);
+  console.log('setCompleteTime' + Date.now());
   if(err) {
     console.log('err' + err);
   }
