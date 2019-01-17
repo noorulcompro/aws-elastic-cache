@@ -20,7 +20,7 @@ client.on('connect', function() {
 var arr = [];
 
 for(var i =1; i<1000000; i++) {
- arr.push(i + '');
+ arr.push('object' + i);
 }
  
 // This will return a JavaScript String
