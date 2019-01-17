@@ -19,7 +19,7 @@ client.on('connect', function() {
  
 // This will return a JavaScript String
 var id = setInterval(function() {
-  client.get('object9900', function(err, response) {
+  client.get('object19001', function(err, response) {
     if(err) {
       console.log('err' + err);
     }
