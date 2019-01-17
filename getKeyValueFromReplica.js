@@ -23,13 +23,13 @@ client.get('Anshika', function(err, response) {
     console.log('err' + err);
   }
   else {
-    if(response === 'Srivastava') {
+    if(response === 'Srivastava1111111111111111111111111111111111111111111111111111111111111111111111111') {
       var getTimeOnCorrectResult = Date.now();
-      console.log('getTimeOnCorrectResult' + getTimeOnCorrectResult);
+      console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
     }
     else {
       console.log('response on IncorrectResult' + response);
     }
-    console.log('response' + response);
+    console.log('response ' + response);
   }
 });
