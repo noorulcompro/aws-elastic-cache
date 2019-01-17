@@ -16,9 +16,14 @@ client.on("error", function (err) {
 client.on('connect', function() {
   console.log('Redis connect event');
 });
- 
+ var array = [];
+
+for(var i =1; i<10001; i++) {
+  array.push(i);
+}
+console.log('array ' + array);
 // This will return a JavaScript String
-client.set('Anshika23', 'Srivastava23', function(err, response) {
+client.mset(array, function(err, response) {
   var setTime = Date.now();
   console.log('setTime' + setTime);
   if(err) {
