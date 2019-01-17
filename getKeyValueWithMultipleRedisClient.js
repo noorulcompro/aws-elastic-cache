@@ -9,7 +9,7 @@ var options = {
 var arrClients = [];
 
 console.log('Creating Redis Client');
-for(var i =0; i<2; i++) {
+for(var i =0; i<1; i++) {
  var client = redis.createClient(options.port, options.host);
  client.on("error", function (err) {
    console.log("Error " + err);
@@ -23,7 +23,7 @@ for(var i =0; i<2; i++) {
 
 var id = setInterval(function() {
  arrClients.forEach(function(client) {
-    client.get('object59001', function(err, response) {
+    client.get('object69001', function(err, response) {
       if(err) {
         console.log('err' + err);
       }
