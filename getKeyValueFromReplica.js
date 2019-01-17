@@ -18,18 +18,20 @@ client.on('connect', function() {
 });
  
 // This will return a JavaScript String
-client.get('Anshika2', function(err, response) {
-  if(err) {
-    console.log('err' + err);
-  }
-  else {
-    if(response === 'Srivastava2') {
-      var getTimeOnCorrectResult = Date.now();
-      console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
+setInterval(function() {
+  client.get('Anshika20', function(err, response) {
+    if(err) {
+      console.log('err' + err);
     }
     else {
-      console.log('response on IncorrectResult' + response);
+      if(response === 'Srivastava20') {
+        var getTimeOnCorrectResult = Date.now();
+        console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
+      }
+      else {
+        console.log('response on IncorrectResult' + response);
+      }
+      console.log('response ' + response);
     }
-    console.log('response ' + response);
-  }
-});
+  });
+ }, 2)
