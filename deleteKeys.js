@@ -19,8 +19,8 @@ client.on('connect', function() {
 
 var arr = [];
 
-for(var i =1; i<1000000; i+2) {
- arr.push(i);
+for(var i =1; i<1000000; i++) {
+ arr.push(i + '');
 }
  
 // This will return a JavaScript String
