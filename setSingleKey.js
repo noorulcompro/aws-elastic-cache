@@ -40,6 +40,7 @@ setInterval(function() {
     if(err) {
       console.log(err);
     } else {
+      console.log('Response timing: ' + Date.now());
       console.log(response);
     }
   });
