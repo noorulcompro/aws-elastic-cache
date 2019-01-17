@@ -3,7 +3,7 @@ var timeout = 500; // = 1 sec, (in miliseconds)
 var counter = 0;
 
 var options = {
-    'host': 'thor-transactions-001.dwnzoe.0001.usw2.cache.amazonaws.com',
+    'host': 'thor-transactions-002.dwnzoe.0001.usw2.cache.amazonaws.com',
     'port': 6379
 };
 
