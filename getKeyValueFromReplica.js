@@ -24,7 +24,7 @@ var id = setInterval(function() {
       console.log('err' + err);
     }
     else {
-      if(response === 98) {
+      if(response === '98') {
         var getTimeOnCorrectResult = Date.now();
         console.log('getTimeOnCorrectResult ' + getTimeOnCorrectResult);
         clearInterval(id);
