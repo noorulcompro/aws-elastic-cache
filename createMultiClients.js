@@ -18,13 +18,13 @@ var id = setInterval(function() {
     });
 
     client.on('connect', function() {
-      console.log('Redis connect event');
+//      console.log('Redis connect event');
     });
 
     client.on('ready', function() {
-      console.log('Redis ready event');
+//      console.log('Redis ready event');
     });
     arrClients.push(client);
   }
   console.log('clients created : ' + arrClients.length);
- }, 1000);
+ }, 100);
