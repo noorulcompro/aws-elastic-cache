@@ -6,12 +6,12 @@ var options = {
   "port": 6379
 };
 
-var counter = 0;
+var counter = 0, loopCounter = 0;
 
 console.log('Creating Multiple Redis Clients');
 
 var id = setInterval(function() {
-  for(var i = 0; i<20; i++) {
+  for(var i = 0; i<20; i++, loopCounter++) {
     var client = redis.createClient(options.port, options.host);
     client.on("error", function (err) {
       console.log("Error " + err);
@@ -19,6 +19,9 @@ var id = setInterval(function() {
 
     client.on('connect', function() {
         counter++;
+        if(counter % 20 == 0) {
+          console.log('clients created : ' + counter);
+        }
 //      console.log('Redis connect event');
     });
 
@@ -30,5 +33,5 @@ var id = setInterval(function() {
       console.log('Redis end event');
     });
   }
-  console.log('clients created : ' + counter);
+  console.log('Loop counter : ' + loopCounter);
  }, 100);
