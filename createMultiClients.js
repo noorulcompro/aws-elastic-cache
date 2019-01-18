@@ -19,7 +19,7 @@ var id = setInterval(function() {
 
     client.on('connect', function() {
         counter++;
-        if(counter % 100 == 0) {
+        if(counter % 50 == 0) {
           console.log('clients created : ' + counter);
         }
 //      console.log('Redis connect event');
@@ -33,5 +33,5 @@ var id = setInterval(function() {
       console.log('Redis end event');
     });
   }
-  console.log('Loop counter : ' + loopCounter);
+//  console.log('Loop counter : ' + loopCounter);
  }, 10);
