@@ -28,7 +28,7 @@ var id = setInterval(function() {
     setTimeout(function() {
       client.quit();
       counter--;
-    }, 120000 });
+    }, 120000 );
   });
 
   client.on('end', function() {
