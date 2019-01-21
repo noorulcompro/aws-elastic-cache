@@ -23,7 +23,7 @@ client.on('error', function (err) {
 
 var redisKey = 's:ballu:anupam';
 
-client.get(redisKey, 'Sharma', function (error, result) {
+client.set(redisKey, 'Sharma', function (error, result) {
     console.log('result');
     console.log(result);
 });
