@@ -29,7 +29,7 @@ var id = setInterval(function() {
      // client.quit();
       //counter--;
     //}, 120000 );
-  //});
+  });
 
   client.on('end', function() {
     console.log('Redis end event');
