@@ -25,8 +25,10 @@ var id = setInterval(function() {
   client.on('ready', function() {
     console.log('Redis ready event');
     console.log('Quitting Connection');
-    setTimeout(function() { client.quit();}, 120000 });
-    counter--;
+    setTimeout(function() {
+      client.quit();
+      counter--;
+    }, 120000 });
   });
 
   client.on('end', function() {
