@@ -3,14 +3,32 @@ var fs = require('fs');
 
 var options = {
   "host": "thor-user-tokens.dwnzoe.ng.0001.usw2.cache.amazonaws.com",
-  "port": 6379
+  "port": 6379,
+  retry_strategy: function (options) {
+        if (options.error && options.error.code === 'ECONNREFUSED') {
+            // End reconnecting on a specific error and flush all commands with
+            // a individual error
+            return new Error('The server refused the connection');
+        }
+        if (options.total_retry_time > 1000 * 60 * 60) {
+            // End reconnecting after a specific timeout and flush all commands
+            // with a individual error
+            return new Error('Retry time exhausted');
+        }
+        if (options.attempt > 10) {
+            // End reconnecting with built in error
+            return undefined;
+        }
+        // reconnect after
+        return Math.min(options.attempt * 100, 3000);
+    }
 };
 
 console.log('Creating Redis Client');
 var set_ref;
 
-var client_get = redis.createClient(options.port, options.host);
-var client_set = redis.createClient(options.port, options.host);
+var client_get = redis.createClient(options);
+var client_set = redis.createClient(options);
 
 client_set.on("error", function (err) {
     console.log("Error set " + err);
