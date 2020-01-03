@@ -35,6 +35,7 @@ function getAllData(keys) {
   async.eachOfLimit(keys, 20, function(key, idx, cb) {
     console.log(keys[idx]);
     client.hgetall(keys[idx], function(err, val) {
+      if(err) { console.log('error for key: ' + keys[idx], err); }
       result[keys[idx]] = val;
       cb();
     });
