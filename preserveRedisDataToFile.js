@@ -1,3 +1,9 @@
+/**
+* Given the 'keyPattern', This file will copy all the data from redis which matches the pattern and write down in a single
+* file named 'data-<timestamp>.json' in the current directory of this file. The output format is like below.
+* file: { key1: jsonData1, key2: jsonData2 .... }
+*/
+
 var redis = require("redis");
 var async = require('async');
 var fs = require('fs');
@@ -55,7 +61,8 @@ function writeDataToFile(data) {
   return deferred.promise;   
 }
 
-getAllKeys('s:anal:dev1:*classrecord*items')
+var keyPattern = 's:anal:dev1:*classrecord*items';
+getAllKeys(pattern)
 .then(getAllData)
 .then(writeDataToFile)
 .then(function(file) { console.log('data written successfully to file: ' + file); })
